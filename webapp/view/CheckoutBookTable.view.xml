@@ -1,0 +1,78 @@
+<mvc:View
+  	controllerName="org.ubb.books.controller.CheckoutBookTable"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+
+   <Table id="checkoutBookTable"
+		items="{
+			path: '/SearchBooks',
+			sorter: {
+				path: 'Title'
+			}
+		}"
+		growing="true"
+		growingThreshold="10"
+		mode="SingleSelectLeft"
+		updateFinished="onUpdateFinished">
+
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+				<Input id="inputISBN" width="10%" placeholder="ISBN"/>
+				<Input id="inputTitle" width="10%" placeholder="{i18n>title}"/>
+				<Input id="inputAuthor" width="10%" placeholder="{i18n>author}"/>
+				<DatePicker id="inputDateStart" width="10%" value=""/>
+				<DatePicker id="inputDateEnd"   width="10%" value=""/>
+				<Input id="inputLanguage" width="10%" placeholder="{i18n>lang}"/>
+				<Button 
+					text="{i18n>search}"
+					press="onSearchButtonPressed"
+					enabled="true"
+				/>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+
+		<columns>
+			<Column>
+				<Text text="{i18n>title}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>author}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>published}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>lang}" />
+			</Column>
+            <Column>
+				<Text text="{i18n>available}" />
+			</Column>
+			<Column>
+				<Text text="{Checkout}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						title="{Title}"
+						text="{Isbn}"/>
+					<Text text="{Author}" />
+					<Text text="{ 
+							path: 'Published',
+							type: 'sap.ui.model.type.DateTime'
+               			}" 
+					/>
+					<Text text="{Language}" />
+					<Text text="{= parseInt(${AvailableAmount}) }" />
+					<Button
+							text="{i18n>bookBook}"
+							press="onBookBook"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
