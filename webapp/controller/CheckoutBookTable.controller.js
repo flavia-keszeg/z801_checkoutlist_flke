@@ -22,7 +22,7 @@ sap.ui.define([
 			oTable.getInfoToolbar().setVisible(!oEvent.getParameter("pressed"));
       },
 
-      onBookBook(oEvent) {
+      onBookCheckout(oEvent) {
             const aSelectedContexts = this.byId("checkoutBookTable").getSelectedContexts();
             const sPath = aSelectedContexts[0].getPath();
 

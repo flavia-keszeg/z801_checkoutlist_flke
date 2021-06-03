@@ -13,8 +13,7 @@
 		}"
 		growing="true"
 		growingThreshold="10"
-		mode="SingleSelectLeft"
-		updateFinished="onUpdateFinished">
+		mode="SingleSelectLeft">
 
 		<headerToolbar>
 			<OverflowToolbar>
@@ -69,8 +68,8 @@
 					<Text text="{Language}" />
 					<Text text="{= parseInt(${AvailableAmount}) }" />
 					<Button
-							text="{i18n>bookBook}"
-							press="onBookBook"/>
+							text="{i18n>checkoutBook}"
+							press="onBookCheckout"/>
 				</cells>
 			</ColumnListItem>
 		</items>
